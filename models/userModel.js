@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   avatar: { type: Object },
   password: { type: String, required: true },
-  projections: { type: Array },
+  projections: { type: Object },
 });
 
 module.exports = mongoose.model('User', userSchema); // <-- export your model

@@ -7,7 +7,7 @@ const loginRouter = require('./routes/loginRouter');
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/dashboard', dashboardRouter);
-app.use('/login', loginRouter);
+// app.use('/login', loginRouter);
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../public/index.html'));

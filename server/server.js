@@ -5,11 +5,9 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-app.get('/spot', function (req, res) {
-  res.send('hello world');
+app.listen(4000, () => {
+  console.log('running server on port 4000');
 });
-
-app.listen(4000);

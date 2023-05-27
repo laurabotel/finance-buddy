@@ -4,7 +4,7 @@ const userController = require('../controllers/userController.js');
 
 // for GET requests to the dashboard, load user avatar, and user saved data that matches the URL param
 dashboardRouter.get('/:username', userController.findUser, (req, res) => {
-  res.json(`'some existing user data': ${res.locals.username}`);
+  res.json(`'some existing user data': ${res.locals.user}`);
 });
 
 // for POST requests to dashboard endpoing, save data as a projection

@@ -1,0 +1,10 @@
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    display: grid;
+    font-family: var(--font-family);
+    line-height: 1.5;
+    margin: 0;
+    min-block-size: 100vh;
+    place-content: center;
+  }

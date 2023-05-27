@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 let dotenv = require('dotenv').config();
-console.log(dotenv);
 const mongoSecret = dotenv.parsed.MONGO_URI;
-console.log(mongoSecret);
 
-// gOmpE22WKJQCbAjZ
 const URI = `mongodb+srv://laurabotel:${mongoSecret}@cluster0.ewwt1se.mongodb.net/`;
 
 mongoose

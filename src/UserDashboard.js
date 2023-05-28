@@ -68,41 +68,45 @@ export default function UserDashboard() {
         {/* target retirement amount */}
         <TextField
           id='outlined-basic'
-          label='Outlined'
+          label='Target Retirement $'
           aria-describedby='targetRetirementAmount'
           variant='outlined'
           onBlur={handleTarget}
-          value={1000000}
+          // value={1000000}
+          placeholder={targetRetirement}
         />
         <span id='targetRetirementAmount'>Target Retirement Amount</span>
         {/*annual income amount */}
         <TextField
           id='outlined-basic'
-          label='Outlined'
+          label='Annual Income'
           aria-describedby='userAnnualIncome'
           variant='outlined'
           onBlur={handleIncome}
-          value={115000}
+          // value={115000}
+          placeholder={userAnnualIncome}
         />
-        <span id="userAnnualIncome">We'll never share your email.</span>
+        <span id='userAnnualIncome'>We'll never share your email.</span>
         {/* annual expenses  */}
         <TextField
           id='outlined-basic'
-          label='Outlined'
+          label='Annual Expenses'
           aria-describedby='userAnnualExpenses'
           variant='outlined'
           onBlur={handleExpenses}
-          value={40000}
+          // value={40000}
+          placeholder={annualExpenses}
         />
         <span id='userAnnualExpenses'>Estimated Annual Expenses</span>
         {/* custom */}
         <TextField
           id='outlined-basic'
-          label='Outlined'
+          label='Income Growth Rate'
           aria-describedby='incomeGrowthRate'
           variant='outlined'
           onBlur={handleGrowthRate}
-          value={3}
+          // value={3} //
+          placeholder={incomeGrowthRate}
         />
         <span id='my-helper-text'>incomeGrowthRate.</span>
         <StickyHeadTable

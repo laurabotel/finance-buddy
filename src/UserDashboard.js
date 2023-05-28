@@ -84,7 +84,7 @@ export default function UserDashboard() {
           onBlur={handleIncome}
           value={115000}
         />
-        <span id='userAnnualIncome'>Annual Income</span>
+        <span id="userAnnualIncome">We'll never share your email.</span>
         {/* annual expenses  */}
         <TextField
           id='outlined-basic'

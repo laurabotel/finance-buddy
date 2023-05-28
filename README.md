@@ -1,8 +1,34 @@
-# Getting Started with Create React App
+# Upstart Finance
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Inspiration
 
-## Available Scripts
+ Inspired by the Financial Independence Retire Early (FIRE) movement, we shared ideas around creating a tool that would encourage less spending while investing in sustainable stocks. We wanted a tool that would calculate savings to retirement, encouraging folks to spend less and take control of their finances. We added as a stretch goal to gamify investing by showing people what could be invested and how much you can project to have investments after an amount of time and allowing you to live a financially independent life.
+
+Common FIRE calculators uses a savings rate that inadvertently encourages an increase of spending by adjusting proportionally the amount of expenses to the amount of income earned. We set out to create a calculator that would allow for a user to take control of their expenses by staying within a fixed amount while also (hopefully) increasing their income. We then thought about the difference of the proportion of that savings users would save could then be invested in sustainable vehicles.
+
+## What it does
+
+We made a calculator that seeks to solves the issue of not being able to save enough for retirement before late 60s. We also allow for users to then invest in sustainable products.
+
+## How we built it
+
+This project was built with a lot of collaboration and google, chat gpt and brain power!
+
+Tech used:
+
+- MUI
+
+- JavaScript
+
+- React
+
+- MongoDB
+
+- Netlify
+
+- Heroku
+
+## Building the Project
 
 In the project directory, you run:
 
@@ -11,62 +37,60 @@ In the project directory, you run:
 ### `npm start`
 
 Runs the app in the development mode.\
+
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
+
 You may also see any lint errors in the console.
 
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
+
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
+
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
+
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Challenges we ran into
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+With the constraint of 24 hours for project planning, ideation, designing and developing we faced a number of challenges:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- deploying the back-end and connecting to front-end
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- creating a formula in JavaScript for the calculator
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- dev environment pains
 
-## Learn More
+## Accomplishments that we're proud of
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Having a working formula
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Sleek design
 
-### Code Splitting
+- Creating a solution for solving an issue that's top of mind for many
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Working as team
 
-### Analyzing the Bundle Size
+## What we learned
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Configuring a full stack app for efficient development takes time
 
-### Making a Progressive Web App
+- Deploying a full stack app takes time
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## What's next for Upstart Finance
 
-### Advanced Configuration
+- We aim to implement out stretch goals to include a chat bot that would assists users with best practices in saving and investing for retirement
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Creating a visual component that inspires users to continue with their sustainable investments by gamifying the online shopping experience with a browser extension
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

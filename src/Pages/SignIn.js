@@ -46,7 +46,7 @@ const defaultTheme = createTheme({
 
 export default function SignIn() {
 
-  const navigate = useNavigate();
+ const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -60,7 +60,7 @@ export default function SignIn() {
     )
     .then((data) => {
       console.log(data);
-      navigate('/dashboard')
+      // navigate('/dashboard')
       
     });
 

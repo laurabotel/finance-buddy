@@ -106,11 +106,12 @@ export default function UserDashboard() {
         <Box component="form" noValidate sx={{ mt: 1 }}>
         <TextField
           id='outlined-basic'
-          label='Outlined'
+          label='Target Retirement $'
           aria-describedby='targetRetirementAmount'
           variant='outlined'
           onBlur={handleTarget}
-          value={1000000}
+          // value={1000000}
+          placeholder={targetRetirement}
         />
         </Box>
         <Typography component="h1" variant="h5"> Total Annual Income </Typography> 
@@ -118,11 +119,12 @@ export default function UserDashboard() {
         {/*annual income amount */}
         <TextField
           id='outlined-basic'
-          label='Outlined'
+          label='Annual Income'
           aria-describedby='userAnnualIncome'
           variant='outlined'
           onBlur={handleIncome}
-          value={115000}
+          // value={115000}
+          placeholder={userAnnualIncome}
         />
         </Box>
         <Typography component="h1" variant="h5">Estimated Annual Expenses</Typography>
@@ -130,11 +132,12 @@ export default function UserDashboard() {
         {/* annual expenses  */}
         <TextField
           id='outlined-basic'
-          label='Outlined'
+          label='Annual Expenses'
           aria-describedby='userAnnualExpenses'
           variant='outlined'
           onBlur={handleExpenses}
-          value={40000}
+          // value={40000}
+          placeholder={annualExpenses}
         />
         </Box>
         <Typography component="h1" variant="h5">Income Growth Rate for year</Typography>
@@ -142,11 +145,12 @@ export default function UserDashboard() {
         {/* custom */}
         <TextField
           id='outlined-basic'
-          label='Outlined'
+          label='Income Growth Rate'
           aria-describedby='incomeGrowthRate'
           variant='outlined'
           onBlur={handleGrowthRate}
-          value={3}
+          // value={3} //
+          placeholder={incomeGrowthRate}
         />
         </Box>
         

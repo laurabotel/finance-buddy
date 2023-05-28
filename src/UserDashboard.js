@@ -1,6 +1,33 @@
-import { TextField, Avatar, Box } from '@mui/material';
+import * as React from 'react';
+import { TextField, Box } from '@mui/material';
 import StickyHeadTable from './UserOutput';
 import { useState, useEffect } from 'react';
+import {Button, CssBaseline, FormControlLabel, Checkbox, Link, Grid,Typography,Container 
+ } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material';
+
+const centerDivStyle = {
+  display: 'flex',
+  justifyContent:'center',
+  alignItems:'center',
+  height: '100vh'
+};
+const defaultTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#d3dfea',
+    },
+    secondary: {
+      main: '#f3e5f5',
+    },
+    background: {
+      default: '#0c1035',
+    },
+
+    
+  }
+});
 
 function stringToColor(string) {
   let hash = 0;
@@ -32,6 +59,7 @@ function stringAvatar(name) {
 }
 
 export default function UserDashboard() {
+  
   const [targetRetirement, setTarget] = useState(200000);
   const [userAnnualIncome, setUserAnnualIncome] = useState(80000);
   const [annualExpenses, setAnnualExpenses] = useState(40000);
@@ -58,14 +86,24 @@ export default function UserDashboard() {
   };
 
   return (
-    <div className='Dashboard'>
-      <Box>
-        <Avatar
-          {...stringAvatar('First Last')}
-          alt='First Last'
-          src='/broken-image.jpg'
-        />
+    <ThemeProvider theme={defaultTheme}>
+    <div>
+      <div style={centerDivStyle}>
+      <Container component="main" maxWidth="50" style={{border: '1px solid white',}}>
+        
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            justifyContent: "center",
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
         {/* target retirement amount */}
+        <Typography component="h1" variant="h5">Target Retirement Amount</Typography>
+        <Box component="form" noValidate sx={{ mt: 1 }}>
         <TextField
           id='outlined-basic'
           label='Target Retirement $'
@@ -75,7 +113,9 @@ export default function UserDashboard() {
           // value={1000000}
           placeholder={targetRetirement}
         />
-        <span id='targetRetirementAmount'>Target Retirement Amount</span>
+        </Box>
+        <Typography component="h1" variant="h5"> Total Annual Income </Typography> 
+        <Box component="form" noValidate sx={{ mt: 1 }}>
         {/*annual income amount */}
         <TextField
           id='outlined-basic'
@@ -86,7 +126,9 @@ export default function UserDashboard() {
           // value={115000}
           placeholder={userAnnualIncome}
         />
-        <span id='userAnnualIncome'>We'll never share your email.</span>
+        </Box>
+        <Typography component="h1" variant="h5">Estimated Annual Expenses</Typography>
+        <Box component="form" noValidate sx={{ mt: 1 }}>
         {/* annual expenses  */}
         <TextField
           id='outlined-basic'
@@ -97,7 +139,9 @@ export default function UserDashboard() {
           // value={40000}
           placeholder={annualExpenses}
         />
-        <span id='userAnnualExpenses'>Estimated Annual Expenses</span>
+        </Box>
+        <Typography component="h1" variant="h5">Income Growth Rate for year</Typography>
+        <Box component="form" noValidate sx={{ mt: 1 }}>
         {/* custom */}
         <TextField
           id='outlined-basic'
@@ -108,7 +152,8 @@ export default function UserDashboard() {
           // value={3} //
           placeholder={incomeGrowthRate}
         />
-        <span id='my-helper-text'>incomeGrowthRate.</span>
+        </Box>
+        
         <StickyHeadTable
           targetRetirement={targetRetirement}
           annualExpenses={annualExpenses}
@@ -116,6 +161,10 @@ export default function UserDashboard() {
           incomeGrowthRate={incomeGrowthRate}
         />
       </Box>
+      </Container>
+      </div>
     </div>
+    </ThemeProvider>
   );
+  
 }

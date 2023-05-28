@@ -5,7 +5,11 @@ const cors = require('cors');
 const dashboardRouter = require('./routes/dashboardRouter');
 const loginRouter = require('./routes/loginRouter');
 
-app.use(cors());
+let corsOptions = {
+  origin: 'http://localhost:3000',
+};
+
+app.use(cors(corsOptions));
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/dashboard', dashboardRouter);

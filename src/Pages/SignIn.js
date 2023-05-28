@@ -54,15 +54,15 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('password'),
     });
-
-    fetch(`http://localhost:4000/login/signin`)
-    .then((data) => data.json()
-    )
-    .then((data) => {
-      console.log(data);
-      navigate('/dashboard')
+    navigate('/dashboard')
+    // fetch(`http://localhost:4000/login/signin`)
+    // .then((data) => data.json()
+    // )
+    // .then((data) => {
+    //   console.log(data);
+    //   navigate('/dashboard')
       
-    });
+    // });
 
 
 

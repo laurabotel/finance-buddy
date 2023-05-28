@@ -4,7 +4,12 @@ import { Avatar,Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link
 import { createTheme, ThemeProvider } from '@mui/material';
 
 
-
+const centerDivStyle = {
+  display: 'flex',
+  justifyContent:'center',
+  alignItems:'center',
+  height: '100vh'
+};
 // import 
 
 function Copyright(props) {
@@ -26,11 +31,16 @@ const defaultTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#1976d2',
+      main: '#d3dfea',
     },
     secondary: {
-      main: '#9c27b0',
+      main: '#f3e5f5',
     },
+    background: {
+      default: '#0c1035',
+    },
+
+    
   }
 });
 
@@ -47,12 +57,17 @@ export default function SignUp() {
   return (
     
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
+     <div>
+      <div style={centerDivStyle}>
+      <Container component="main" maxWidth="xs" style={{border: '1px solid white',
+     }}>
+        
         <CssBaseline />
         <Box
           sx={{
             marginTop: 8,
             display: 'flex',
+            justifyContent: "center",
             flexDirection: 'column',
             alignItems: 'center',
           }}
@@ -124,7 +139,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/SignIn.js" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
@@ -133,6 +148,8 @@ export default function SignUp() {
         </Box>
         <Copyright sx={{ mt: 5 }} />
       </Container>
+      </div>
+      </div>
     </ThemeProvider>
   );
 }

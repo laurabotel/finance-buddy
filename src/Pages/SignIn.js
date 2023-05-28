@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Avatar,Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Box,Typography,Container 
  } from '@mui/material';
+ import { useNavigate } from 'react-router';
 import { createTheme, ThemeProvider } from '@mui/material';
 
 const centerDivStyle = {
@@ -44,6 +45,8 @@ const defaultTheme = createTheme({
 
 
 export default function SignIn() {
+
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -51,6 +54,22 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('password'),
     });
+
+    fetch(`http://localhost:4000/login/signin`)
+    .then((data) => data.json()
+    )
+    .then((data) => {
+      console.log(data);
+      navigate('/dashboard')
+      
+    });
+
+
+
+
+
+
+
   };
 
   return (
@@ -113,7 +132,7 @@ export default function SignIn() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

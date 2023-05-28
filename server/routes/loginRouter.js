@@ -2,8 +2,8 @@ const express = require('express');
 const userController = require('../controllers/userController');
 const loginRouter = express.Router();
 
-loginRouter.get('/', userController.addUser,(req, res) =>{
-    res.json('some existing user data')
+loginRouter.get('/signin', userController.checkUser,(req, res) =>{
+    res.json("signed")
 })
 
 

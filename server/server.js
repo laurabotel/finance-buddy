@@ -5,7 +5,11 @@ const cors = require('cors');
 const dashboardRouter = require('./routes/dashboardRouter');
 const loginRouter = require('./routes/loginRouter');
 
-app.use(cors());
+let corsOptions = {
+  origin: 'http://localhost:3000',
+};
+
+app.use(cors(corsOptions));
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/dashboard', dashboardRouter);
@@ -21,9 +25,14 @@ app.use('/', (req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  console.log(err);
-
-  return res.status(500).send('Error in server');
+  const defaultErr = {
+    log: 'Express error handler caught unknown middleware error',
+    status: 500,
+    message: { err: 'An error occurred' },
+  };
+  const errorObj = Object.assign({}, defaultErr, err);
+  console.log(errorObj.log);
+  return res.status(errorObj.status).json(errorObj.message);
 });
 
 app.listen(4000, () => {

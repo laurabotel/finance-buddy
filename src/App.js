@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import UserDashboard from "./UserDashboard";
 
 
 
@@ -30,6 +31,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <UserDashboard />
         <a
           className='App-link'
           href='https://reactjs.org'

@@ -54,7 +54,6 @@ export default function UserDashboard() {
           aria-describedby="userAnnualIncome"
           variant="outlined"
         />
-        <span id="userAnnualIncome">We'll never share your email.</span>
         {/* annual expenses  */}
         <TextField
           id="outlined-basic"

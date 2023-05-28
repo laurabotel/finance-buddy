@@ -4,7 +4,8 @@ import './index.css';
 //import App from './App';
 import reportWebVitals from './reportWebVitals';
 //import SignUp from './Pages/SignUp';
-import SignIn from './Pages/SignIn';
+
+import Balance from './Pages/Balance';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,8 +13,7 @@ root.render(
     {/* <App /> */
     }
 
-   
-    <SignIn/>
+   <Balance/>
 
   </React.StrictMode>
 );

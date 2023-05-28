@@ -1,5 +1,6 @@
-import { TextField, Avatar, Box } from "@mui/material";
-import StickyHeadTable from "./UserOutput";
+import { TextField, Avatar, Box } from '@mui/material';
+import StickyHeadTable from './UserOutput';
+import { useState, useEffect } from 'react';
 
 function stringToColor(string) {
   let hash = 0;
@@ -10,7 +11,7 @@ function stringToColor(string) {
     hash = string.charCodeAt(i) + ((hash << 5) - hash);
   }
 
-  let color = "#";
+  let color = '#';
 
   for (i = 0; i < 3; i += 1) {
     const value = (hash >> (i * 8)) & 0xff;
@@ -26,51 +27,90 @@ function stringAvatar(name) {
     sx: {
       bgcolor: stringToColor(name),
     },
-    children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
+    children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
   };
 }
 
 export default function UserDashboard() {
+  const [targetRetirement, setTarget] = useState(200000);
+  const [userAnnualIncome, setUserAnnualIncome] = useState(80000);
+  const [annualExpenses, setAnnualExpenses] = useState(40000);
+  const [incomeGrowthRate, setIncomeGrowthRate] = useState(2);
+
+  const handleTarget = (event) => {
+    console.log(event.target.value);
+    setTarget(event.target.value);
+  };
+
+  const handleIncome = (event) => {
+    console.log(event.target.value);
+    setUserAnnualIncome(event.target.value);
+  };
+
+  const handleExpenses = (event) => {
+    console.log(event.target.value);
+    setAnnualExpenses(event.target.value);
+  };
+
+  const handleGrowthRate = (event) => {
+    console.log(event.target.value);
+    setIncomeGrowthRate(event.target.value);
+  };
+
   return (
-    <div className="Dashboard">
+    <div className='Dashboard'>
       <Box>
         <Avatar
-          {...stringAvatar("First Last")}
-          alt="First Last"
-          src="/broken-image.jpg"
+          {...stringAvatar('First Last')}
+          alt='First Last'
+          src='/broken-image.jpg'
         />
         {/* target retirement amount */}
         <TextField
-          id="outlined-basic"
-          label="Outlined"
-          aria-describedby="targetRetirementAmount"
-          variant="outlined"
+          id='outlined-basic'
+          label='Outlined'
+          aria-describedby='targetRetirementAmount'
+          variant='outlined'
+          onBlur={handleTarget}
+          value={1000000}
         />
-        <span id="targetRetirementAmount">Target Retirement Amount</span>
+        <span id='targetRetirementAmount'>Target Retirement Amount</span>
         {/*annual income amount */}
         <TextField
-          id="outlined-basic"
-          label="Outlined"
-          aria-describedby="userAnnualIncome"
-          variant="outlined"
+          id='outlined-basic'
+          label='Outlined'
+          aria-describedby='userAnnualIncome'
+          variant='outlined'
+          onBlur={handleIncome}
+          value={115000}
         />
+        <span id="userAnnualIncome">We'll never share your email.</span>
         {/* annual expenses  */}
         <TextField
-          id="outlined-basic"
-          label="Outlined"
-          aria-describedby="userAnnualExpenses"
-          variant="outlined"
+          id='outlined-basic'
+          label='Outlined'
+          aria-describedby='userAnnualExpenses'
+          variant='outlined'
+          onBlur={handleExpenses}
+          value={40000}
         />
-        <span id="userAnnualExpenses">Estimated Annual Expenses</span>
+        <span id='userAnnualExpenses'>Estimated Annual Expenses</span>
         {/* custom */}
         <TextField
-          id="outlined-basic"
-          label="Outlined"
-          aria-describedby="my-helper-text"
-          variant="outlined"
+          id='outlined-basic'
+          label='Outlined'
+          aria-describedby='incomeGrowthRate'
+          variant='outlined'
+          onBlur={handleGrowthRate}
+          value={3}
         />
-        <span id="my-helper-text">We'll never share your email.</span>
-        <StickyHeadTable />
+        <span id='my-helper-text'>incomeGrowthRate.</span>
+        <StickyHeadTable
+          targetRetirement={targetRetirement}
+          annualExpenses={annualExpenses}
+          userAnnualIncome={userAnnualIncome}
+          incomeGrowthRate={incomeGrowthRate}
+        />
       </Box>
     </div>
   );

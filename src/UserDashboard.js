@@ -61,8 +61,8 @@ export default function UserDashboard() {
     <div className='Dashboard'>
       <Box>
         <Avatar
-          {...stringAvatar('First Last')}
-          alt='First Last'
+          {...stringAvatar('Grace Hopper')}
+          alt='Grace Hopper'
           src='/broken-image.jpg'
         />
         {/* target retirement amount */}

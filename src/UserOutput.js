@@ -12,70 +12,88 @@ import {
 
 const columns = [
   {
-    id: "userIncome",
+    id: "annualIncome",
     label: "Annual\u00a0Income",
     minWidth: 170,
     format: (value) => value.toFixed(2),
   },
   {
-    id: "userExpenses",
+    id: "annualExpense",
     label: "Annual\u00a0Expenses",
     minWidth: 100,
     format: (value) => value.toFixed(2),
   },
   {
-    id: "userSaved",
+    id: "annualSavings",
     label: "Annual\u00a0Saved",
     minWidth: 170,
     align: "right",
     format: (value) => value.toFixed(2),
   },
   {
-    id: "targetRemaining",
-    label: "Remaining\u00a0Saving",
+    id: "differenceTotal",
+    label: "Remaining\u00a0Until\u00a0Retirement",
     minWidth: 170,
     align: "right",
     format: (value) => value.toFixed(2),
   },
-  {
-    id: "targetRetirement",
-    label: "Target\u00a0Retirement",
-    minWidth: 170,
-    align: "right",
-    format: (value) => value.toFixed(2),
-  },
-  {
-    id: "lifetimeSaved",
-    label: "Lifetime\u00a0Saved",
-    minWidth: 170,
-    align: "right",
-    format: (value) => value.toFixed(2),
-  },
+//   {
+//     id: "targetRetirement",
+//     label: "Target\u00a0Retirement",
+//     minWidth: 170,
+//     align: "right",
+//     format: (value) => value.toFixed(2),
+//   },
+//   {
+//     id: "lifetimeSaved",
+//     label: "Lifetime\u00a0Saved",
+//     minWidth: 170,
+//     align: "right",
+//     format: (value) => value.toFixed(2),
+//   },
 ];
 
-function createData(userIncome, userExpenses, targetRetirement) {
-  let userSaved = userIncome - userExpenses;
-  let targetRemaining = targetRetirement - userSaved;
-  return { userIncome, userExpenses, userSaved, targetRemaining };
-}
+// function calculateAnnualSavings(userIncome, userExpenses, targetRetirement) {
+//   let userSaved = userIncome - userExpenses;
+//   let targetRemaining = targetRetirement - userSaved;
+//   return { userIncome, userExpenses, userSaved, targetRemaining };
+// }
 
-const rows = [
-  createData(80000, 40000),
-  createData(85000, 40000,),
-  createData(90000, 40000),
-  createData(95000, 40000),
-  createData(100000, 40000),
-  createData("Australia", "AU", 25475400, 7692024),
-  createData("Germany", "DE", 83019200, 357578),
-  createData("Ireland", "IE", 4857000, 70273),
-  createData("Mexico", "MX", 126577691, 1972550),
-  createData("Japan", "JP", 126317000, 377973),
-  createData("France", "FR", 67022000, 640679),
-  createData("United Kingdom", "GB", 67545757, 242495),
-  createData("Russia", "RU", 146793744, 17098246),
-  createData("Nigeria", "NG", 200962417, 923768),
-  createData("Brazil", "BR", 210147125, 8515767),
-];
+// function calculateAnnualSavings(
+//   annualIncomes,
+//   annualExpense,
+//   targetRetirement
+// ) {
+//   const totalAnnualIncome = annualIncomes.reduce(
+//     (sum, income) => sum + income,
+//     0
+//   );
+//   let annualSavings = totalAnnualIncome - annualExpense;
+
+//   while (targetRetirement > annualSavings) {
+//     targetRetirement -= annualSavings;
+//   }
+
+//   return annualSavings;
+// }
+
+// const rows = [
+//   calculateAnnualSavings(80000, 40000),
+//   calculateAnnualSavings(85000, 40000,),
+//   calculateAnnualSavings(90000, 40000),
+//   calculateAnnualSavings(95000, 40000),
+//   calculateAnnualSavings(100000, 40000),
+//   calculateAnnualSavings("Australia", "AU", 25475400, 7692024),
+//   calculateAnnualSavings("Germany", "DE", 83019200, 357578),
+//   calculateAnnualSavings("Ireland", "IE", 4857000, 70273),
+//   calculateAnnualSavings("Mexico", "MX", 126577691, 1972550),
+//   calculateAnnualSavings("Japan", "JP", 126317000, 377973),
+//   calculateAnnualSavings("France", "FR", 67022000, 640679),
+//   calculateAnnualSavings("United Kingdom", "GB", 67545757, 242495),
+//   calculateAnnualSavings("Russia", "RU", 146793744, 17098246),
+//   calculateAnnualSavings("Nigeria", "NG", 200962417, 923768),
+//   calculateAnnualSavings("Brazil", "BR", 210147125, 8515767),
+// ];
 
 export default function StickyHeadTable() {
   const [page, setPage] = React.useState(0);
@@ -89,6 +107,58 @@ export default function StickyHeadTable() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+//   testing gpt
+function calculateRetirementChart(
+  initialIncome,
+  annualExpense,
+  targetRetirement
+) {
+  let year = 1;
+  let annualIncome = initialIncome;
+  let annualSavings = annualIncome - annualExpense;
+  let differenceTotal = targetRetirement - annualSavings;
+  const chartData = [];
+
+  do {
+    chartData.push({
+      year,
+      annualIncome,
+      annualExpense,
+      annualSavings,
+      differenceTotal,
+    });
+
+    year++;
+    annualIncome *= 1 + annualIncomeIncreasePercentage / 100;
+    annualSavings = annualIncome - annualExpense;
+    differenceTotal = differenceTotal - annualSavings;
+  } while (differenceTotal > 0);
+
+  chartData.push({
+    year,
+    annualIncome,
+    annualExpense,
+    annualSavings,
+    differenceTotal,
+  });
+
+  return chartData;
+}
+
+// Example usage:
+const initialIncome = 80000; // Initial annual income
+const annualExpense = 40000; // Annual expense (fixed)
+const targetRetirement = 200000; // Target retirement amount
+const annualIncomeIncreasePercentage = 5;
+
+const rows = calculateRetirementChart(
+  initialIncome,
+  annualExpense,
+  targetRetirement
+);
+console.log(rows);
+
 
   return (
     <Paper sx={{ width: "100%", overflow: "hidden" }}>

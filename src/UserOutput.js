@@ -149,7 +149,7 @@ function calculateRetirementChart(
 // Example usage:
 const initialIncome = 80000; // Initial annual income
 const annualExpense = 40000; // Annual expense (fixed)
-const targetRetirement = 2000000; // Target retirement amount
+const targetRetirement = 200000; // Target retirement amount
 const annualIncomeIncreasePercentage = 5;
 
 const rows = calculateRetirementChart(

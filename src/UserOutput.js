@@ -120,7 +120,7 @@ function calculateRetirementChart(
   let differenceTotal = targetRetirement - annualSavings;
   const chartData = [];
 
-  while (differenceTotal > 0) {
+  do {
     chartData.push({
       year,
       annualIncome,
@@ -130,10 +130,18 @@ function calculateRetirementChart(
     });
 
     year++;
-    annualIncome *= (1 + annualIncomeIncreasePercentage / 100); // Increase in annual income for each year (adjust as needed)
+    annualIncome *= 1 + annualIncomeIncreasePercentage / 100;
     annualSavings = annualIncome - annualExpense;
     differenceTotal = differenceTotal - annualSavings;
-  }
+  } while (differenceTotal > 0);
+
+  chartData.push({
+    year,
+    annualIncome,
+    annualExpense,
+    annualSavings,
+    differenceTotal,
+  });
 
   return chartData;
 }

@@ -7,7 +7,7 @@ loginRouter.get('/', userController.addUser,(req, res) =>{
 })
 
 
-loginRouter.post('/:user/:id',userController.addUser,(req,res) => {
+loginRouter.post('/',userController.addUser,(req,res) => {
 
     res.json( res.locals.newUser)
 });

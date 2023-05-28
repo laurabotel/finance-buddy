@@ -10,11 +10,8 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-<<<<<<< HEAD
     "axios": "^1.4.0",
-=======
     "concurrently": "^8.0.1",
->>>>>>> eac8dcce92532e8cff1bb323e74158b146cca124
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",

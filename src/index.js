@@ -5,9 +5,6 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 //import SignUp from './Pages/SignUp';
 import SignIn from './Pages/SignIn';
-import SignUp from './Pages/SignUp';
-import Dashboard from './UserDashboard'
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -30,6 +27,8 @@ root.render(
     }
 
    
+    <SignIn/>
+
   </React.StrictMode>
 );
 

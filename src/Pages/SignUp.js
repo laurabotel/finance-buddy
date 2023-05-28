@@ -44,7 +44,7 @@ const defaultTheme = createTheme({
   }
 });
 
-export default function SignUp() {
+function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -153,3 +153,5 @@ export default function SignUp() {
     </ThemeProvider>
   );
 }
+
+export default SignUp

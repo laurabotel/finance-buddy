@@ -5,16 +5,31 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 //import SignUp from './Pages/SignUp';
 import SignIn from './Pages/SignIn';
+import SignUp from './Pages/SignUp';
+import Dashboard from './UserDashboard'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <BrowserRouter>
+
+      <Routes>
+      <Route index={true}  element={<SignIn />} />
+      <Route path="/signup" element={<SignUp/>}/>
+      <Route path="/signup" element={<SignUp/>}/>
+      <Route path="/DashBoard" element={<Dashboard/>}/>
+
+
+
+      </Routes>
+
+    
+    </BrowserRouter>
     {/* <App /> */
     }
 
    
-    <SignIn/>
-
   </React.StrictMode>
 );
 

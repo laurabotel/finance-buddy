@@ -32,7 +32,7 @@ function Header(props) {
           Sign up
         </Button>
 
-        <Button variant="outlined" size="small">
+        <Button variant="outlined" href= "/signin"size="small">
           Sign in
         </Button>
       </Toolbar>
@@ -41,7 +41,7 @@ function Header(props) {
         variant="dense"
         sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
       >
-        {sections.map((section) => (
+        {/* {sections.map((section) => (
           <Link
             color="inherit"
             noWrap
@@ -52,7 +52,7 @@ function Header(props) {
           >
             {section.title}
           </Link>
-        ))}
+        ))} */}
       </Toolbar>
     </React.Fragment>
   );

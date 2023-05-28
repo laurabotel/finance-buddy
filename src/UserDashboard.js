@@ -2,6 +2,7 @@ import * as React from 'react';
 import { TextField, Box } from '@mui/material';
 import StickyHeadTable from './UserOutput';
 import { useState, useEffect } from 'react';
+
 import {Button, CssBaseline, FormControlLabel, Checkbox, Link, Grid,Typography,Container 
  } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material';
@@ -84,13 +85,20 @@ export default function UserDashboard() {
     console.log(event.target.value);
     setIncomeGrowthRate(event.target.value);
   };
-
+  function stringAvatar(name) {
+    return {
+      sx: {
+        bgcolor: stringToColor(name),
+      },
+      children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+    };
+  }
   return (
     <ThemeProvider theme={defaultTheme}>
     <div>
       <div style={centerDivStyle}>
       <Container component="main" maxWidth="50" style={{border: '1px solid white',}}>
-        
+   
         <CssBaseline />
         <Box
           sx={{
@@ -101,16 +109,11 @@ export default function UserDashboard() {
             alignItems: 'center',
           }}
         >
-    <div className='Dashboard'>
-      <Box>
-        <Avatar
-          {...stringAvatar('Grace Hopper')}
-          alt='Grace Hopper'
-          src='/broken-image.jpg'
-        />
         {/* target retirement amount */}
+ 
         <Typography component="h1" variant="h5">Target Retirement Amount</Typography>
         <Box component="form" noValidate sx={{ mt: 1 }}>
+
         <TextField
           id='outlined-basic'
           label='Outlined'

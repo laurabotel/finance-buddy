@@ -101,6 +101,13 @@ export default function UserDashboard() {
             alignItems: 'center',
           }}
         >
+    <div className='Dashboard'>
+      <Box>
+        <Avatar
+          {...stringAvatar('Grace Hopper')}
+          alt='Grace Hopper'
+          src='/broken-image.jpg'
+        />
         {/* target retirement amount */}
         <Typography component="h1" variant="h5">Target Retirement Amount</Typography>
         <Box component="form" noValidate sx={{ mt: 1 }}>

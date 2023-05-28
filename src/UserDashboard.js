@@ -2,7 +2,7 @@ import * as React from 'react';
 import { TextField, Box } from '@mui/material';
 import StickyHeadTable from './UserOutput';
 import { useState, useEffect } from 'react';
-
+// import Header from "../components/nav";
 import {Button, CssBaseline, FormControlLabel, Checkbox, Link, Grid,Typography,Container 
  } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material';
@@ -95,14 +95,18 @@ export default function UserDashboard() {
   }
   return (
     <ThemeProvider theme={defaultTheme}>
-    <div>
+    <div style={{marginTop:"150px"}}>
+
+    {/* <Header title="Finance Buddy" sections={sections} /> */}
       <div style={centerDivStyle}>
+
+
+      
       <Container component="main" maxWidth="50" style={{border: '1px solid white',}}>
    
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
             display: 'flex',
             justifyContent: "center",
             flexDirection: 'column',

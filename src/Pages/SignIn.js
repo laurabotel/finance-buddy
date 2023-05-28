@@ -60,7 +60,7 @@ export default function SignIn() {
     )
     .then((data) => {
       console.log(data);
-      // navigate('/dashboard')
+      navigate('/dashboard')
       
     });
 
